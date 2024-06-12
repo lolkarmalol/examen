@@ -13,9 +13,9 @@ class BookController extends Controller
         return view('books.index', ['books' => $books]);
     }
 
-    public function create()
+    public function Create()
     {
-        return view('books.create');
+        return view('books.Create');
     }
 
     public function store(Request $request)
@@ -29,7 +29,7 @@ class BookController extends Controller
         ]);
 
         Book::create($validatedData);
-        return redirect('/books')->with('success', 'Libro creado exitosamente');
+        return redirect('books/index')->with('success', 'Libro creado exitosamente');
     }
 
     public function edit(Book $book)
@@ -48,13 +48,13 @@ class BookController extends Controller
         ]);
 
         $book->update($validatedData);
-        return redirect('/books')->with('success', 'Libro actualizado exitosamente');
+        return redirect('books.index')->with('success', 'Libro actualizado exitosamente');
     }
 
     public function destroy(Book $book)
     {
         $book->delete();
-        return redirect('/books')->with('success', 'Libro eliminado exitosamente');
+        return redirect('books/index')->with('success', 'Libro eliminado exitosamente');
     }
 
     public function show(Book $book) {
