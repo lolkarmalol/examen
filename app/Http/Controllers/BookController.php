@@ -29,7 +29,7 @@ class BookController extends Controller
         ]);
 
         Book::create($validatedData);
-        return redirect('books/index')->with('success', 'Libro creado exitosamente');
+        return redirect('books.index')->with('success', 'Libro creado exitosamente');
     }
 
     public function edit(Book $book)
@@ -54,7 +54,7 @@ class BookController extends Controller
     public function destroy(Book $book)
     {
         $book->delete();
-        return redirect('books/index')->with('success', 'Libro eliminado exitosamente');
+        return redirect('books.index')->with('success', 'Libro eliminado exitosamente');
     }
 
     public function show(Book $book) {
